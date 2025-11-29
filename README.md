@@ -8,7 +8,7 @@ This single-page application combines interactive mapping with elevation profile
 
 The tool displays terrain elevation along the path, calculates the direct line of sight between antennas at configurable heights, and visualises the critical [Fresnel](https://en.wikipedia.org/wiki/Fresnel_zone) zone - helping identify potential obstructions that could degrade signal quality.
 
-<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/Front-Page.png?raw=true" height="600em" align="center" alt="Front-page" title="LOS-Plotter"/>
+<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/Front-Page.png?raw=true" height="550em" align="center" alt="Front-page" title="LOS-Plotter"/>
 
 #### **Used to help install my own node:**
 
