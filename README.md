@@ -86,7 +86,7 @@ For a reliable RF link:
 
 
 
-<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/LOS_Example.png?raw=true" height="400em" align="center" alt="LOS Graph" title="LOS-Graph"/>
+<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/LOS_Example.png?raw=true" height="350em" align="center" alt="LOS Graph" title="LOS-Graph"/>
 
 ---
 
