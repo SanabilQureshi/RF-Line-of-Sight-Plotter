@@ -12,7 +12,7 @@ The tool displays terrain elevation along the path, calculates the direct line o
 
 #### **Used to help install my own node:**
 
-<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/Installation.jpg?raw=true" height="320em" align="center" alt="Node Installation" title="Node Installation"/>
+<img src="https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter/blob/main/Node Installation.jpg?raw=true" height="320em" align="center" alt="Node Installation" title="Node Installation"/>
 
 
 
