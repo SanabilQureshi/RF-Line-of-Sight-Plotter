@@ -63,7 +63,7 @@ Elevation sampling adapts to path length (100-500 points) to balance detail with
 No installation or build process required - the application loads all dependencies from CDNs. Simply open the HTML file in any modern browser (Chrome/Firefox).
 
 ### Kubernetes Deployment
-The application can be deployed to a K8s cluster with an integrated elevation API. See [Kubernetes Deployment](#kubernetes-deployment) for details.
+The application can be deployed to a K8s cluster with an integrated elevation API. See [Kubernetes Deployment](https://github.com/SanabilQureshi/RF-Line-of-Sight-Plotter?tab=readme-ov-file#kubernetes-deployment-1) for details.
 
 ### Usage
 
@@ -111,7 +111,6 @@ The project includes manifests for deploying to a [K3s](https://k3s.io/) cluster
 
 ### Architecture
 
-````
 ```mermaid
 graph TB
     subgraph K3s_Cluster["K3s Cluster"]
@@ -133,7 +132,6 @@ graph TB
         LOS -->|"API calls"| OpenElev
     end
 ```
-````
 
 ### Components
 
