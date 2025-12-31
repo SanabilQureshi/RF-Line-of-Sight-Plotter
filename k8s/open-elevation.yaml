@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elevation-data-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/sunny/worldmap
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: elevation-data-pvc
+  namespace: rf-los
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: open-elevation
+  namespace: rf-los
+  labels:
+    app: open-elevation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: open-elevation
+  template:
+    metadata:
+      labels:
+        app: open-elevation
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: pi1
+      containers:
+        - name: open-elevation
+          image: jarkobob/open-elevation:arm64
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: elevation-data
+              mountPath: /code/data
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "200m"
+            limits:
+              memory: "4Gi"
+              cpu: "2000m"
+      volumes:
+        - name: elevation-data
+          persistentVolumeClaim:
+            claimName: elevation-data-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: open-elevation
+  namespace: rf-los
+  labels:
+    app: open-elevation
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: open-elevation

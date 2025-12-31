@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: los-plotter
+  namespace: rf-los
+  labels:
+    app: los-plotter
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: los-plotter
+  template:
+    metadata:
+      labels:
+        app: los-plotter
+    spec:
+      containers:
+        - name: los-plotter
+          image: jarkobob/los-plotter:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: los-plotter
+  namespace: rf-los
+  labels:
+    app: los-plotter
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: los-plotter

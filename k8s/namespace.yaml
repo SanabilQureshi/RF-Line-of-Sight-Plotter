@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rf-los
+  labels:
+    app.kubernetes.io/name: rf-los
+  annotations:
+    description: "RF Line of Sight Plotter"

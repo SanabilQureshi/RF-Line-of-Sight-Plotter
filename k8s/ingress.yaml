@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rf-los-ingress
+  namespace: rf-los
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          # open-elevation
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: open-elevation
+                port:
+                  number: 8080
+          # los-plotter
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: los-plotter
+                port:
+                  number: 80
